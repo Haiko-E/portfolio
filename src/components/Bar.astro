@@ -1,0 +1,22 @@
+---
+const { className, id } = Astro.props;
+---
+
+<section id={id} class={`white-bar ${className}`}>
+  <slot />
+</section>
+
+<style lang='scss'>
+  @import '../sass/_variables.scss';
+  @import '../sass/styles.scss';
+
+  .white-bar {
+    justify-content: flex-end;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    min-height: 10vh;
+    background-color: $white;
+    padding-top: 3rem;
+  }
+</style>

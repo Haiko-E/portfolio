@@ -1,0 +1,153 @@
+---
+import '@fontsource/roboto-mono';
+import '../sass/styles.scss';
+import '../sass/hamburger.scss';
+---
+
+<nav class='nav nav-height'>
+  <div class='nav-logo'>
+    <a href='#'>
+      <span><strong>HAIKO.</strong>E.DEV</span>
+    </a>
+  </div>
+  <div class='nav-links'>
+    <div class='nav-primary'>
+      <a href='#about'>About</a>
+      <a href='#projects'>Projects</a>
+      <a href='#contact'>Contact</a>
+    </div>
+    <div class='nav-secondary'>
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        class='w-6 h-6 hover:w-7 hover:h-7 transition-all duration-300'
+        viewBox='0 0 24 24'
+      >
+        <path
+          fill-rule='evenodd'
+          clip-rule='evenodd'
+          d='M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z'
+        ></path>
+      </svg>
+    </div>
+  </div>
+
+  <div class='nav-mobile'>
+    <div class='menu btn1' data-menu='1'>
+      <div class='icon-left'></div>
+      <div class='icon-right'></div>
+    </div>
+  </div>
+</nav>
+
+<style lang='scss'>
+  @import '../sass/_variables.scss';
+
+  .nav {
+    min-height: 50px;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 40;
+    transition: all ease-in 300ms;
+
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $platinum;
+    }
+
+    @media (max-width: 50rem) {
+      min-height: 80px;
+    }
+  }
+
+  .nav-logo {
+    position: absolute;
+    top: 15px;
+    left: 20%;
+    font-family: 'Roboto Mono';
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 15px;
+    right: 20%;
+    display: flex;
+    height: fit-content;
+
+    a {
+      letter-spacing: 1.5px;
+      margin-left: 1rem;
+    }
+    svg {
+      margin-left: 1rem;
+    }
+
+    @media (max-width: 50rem) {
+      transition: all ease-in 300ms;
+      opacity: 0;
+      position: absolute;
+      top: 25px;
+      left: 20%;
+
+      a:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+  .nav-primary {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+
+    :hover {
+      text-underline-offset: 7px;
+      text-decoration: underline;
+    }
+  }
+
+  .nav-background {
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .nav-secondary {
+    display: flex;
+    align-items: center;
+    > svg {
+      width: 24px;
+      height: 24px;
+      fill: $platinum;
+    }
+  }
+
+  .nav-mobile {
+    position: absolute;
+    top: 8px;
+    right: 20%;
+
+    @media (min-width: 50rem) {
+      display: none;
+    }
+  }
+
+  .show {
+    top: 50px;
+    opacity: 1;
+    display: flex;
+
+    @media (min-width: 50rem) {
+      top: 15px;
+    }
+  }
+
+  .nav-height {
+    min-height: 50px;
+  }
+</style>
+
+<script>
+  import '../ts/navbar';
+</script>

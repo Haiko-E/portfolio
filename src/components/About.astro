@@ -1,0 +1,59 @@
+---
+---
+
+<section id='about' class='about'>
+  <img
+    class='about-image'
+    src='https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80'
+    alt=''
+  />
+  <div class='about-me'>
+    <h2>About me</h2>
+    <h4 class='typewriter'></h4>
+    <p>
+      Hi! <br /> My name is Haiko. I'm a frontend developer who loves to transform your
+      designs to the most optimized code possible.
+    </p>
+  </div>
+</section>
+
+<style lang='scss'>
+  @import '../sass/_variables.scss';
+
+  .about {
+    color: $white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: $black;
+    z-index: 10;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+
+    @media (max-width: 50rem) {
+      grid-template-columns: 1fr;
+      grid-row: 1fr 1fr;
+    }
+  }
+
+  .about-image {
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .about-me {
+    margin-right: 20px;
+    margin-left: 20px;
+    align-self: center;
+
+    p {
+      color: $platinum-dark;
+    }
+  }
+</style>
+
+<script>
+  import '../ts/about.ts';
+</script>

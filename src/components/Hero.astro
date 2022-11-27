@@ -1,0 +1,41 @@
+---
+---
+
+<section class='hero'>
+  <h1>Creating code <br /> from<br /> your Design</h1>
+  <a class='btn' href='#projects'>Check my Work</a>
+</section>
+
+<style lang='scss'>
+  @import '../sass/_variables.scss';
+  @import '../sass/_components.scss'; // btn
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../public/assets/future-grid.webp');
+    background-color: #000000;
+    background-size: 105% 105%;
+    background-position-x: var(--positionX);
+    background-position-y: var(--positionY);
+    background-repeat: no-repeat;
+    // background-position: -10px -10px;
+    position: sticky;
+    top: 0;
+    min-width: 100%;
+    min-height: 100vh;
+    transform: rotate(45);
+
+    > h1 {
+      color: $platinum;
+      margin-bottom: 1em;
+    }
+  }
+</style>
+
+<script>
+  import '../ts/hero';
+</script>

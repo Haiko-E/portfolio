@@ -1,0 +1,75 @@
+---
+---
+
+<section class='source-code'>
+  <div class='source-code__image'>
+    <img
+      src='https://images.unsplash.com/photo-1667829186138-55120b70d731?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+      alt=''
+      srcset=''
+    />
+  </div>
+  <div class='source-code__content'>
+    <h2>Source Code</h2>
+    <h4>Please tell me</h4>
+    <p>Curious about al the details? checkout the source..</p>
+
+    <a class='btn btn-custom' href='#'>Get the source</a>
+  </div>
+</section>
+
+<style lang='scss'>
+  @import '../sass/styles.scss';
+  @import '../sass/_variables.scss';
+  @import '../sass/_components.scss';
+
+  .source-code {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-color: $platinum;
+    position: relative;
+
+    &__image {
+      overflow: hidden;
+      width: 50%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 50%;
+
+      h4 {
+        color: $black;
+      }
+
+      p {
+        margin-bottom: 5em;
+      }
+    }
+  }
+
+  .btn-custom {
+    background-color: $orange-web;
+    color: black;
+    border: 1px solid $orange-web;
+
+    &::before {
+      background-color: $platinum;
+    }
+
+    &:hover {
+      border: 1px solid black;
+    }
+  }
+</style>
+
+<script></script>

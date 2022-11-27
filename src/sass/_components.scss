@@ -1,0 +1,35 @@
+.btn {
+  position: relative;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: $platinum;
+  border: 1px solid $platinum;
+  padding: 20px;
+  font-weight: 600;
+  z-index: 30;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 400ms;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #fca311;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 400ms;
+
+    transform: skew(-30deg) translateX(-115%);
+  }
+
+  &:hover {
+    border: 1px solid #fca311;
+    color: black;
+    &::before {
+      transform: translateX(0);
+    }
+  }
+}

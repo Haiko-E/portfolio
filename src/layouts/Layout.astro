@@ -1,0 +1,66 @@
+---
+export interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+import '@fontsource/roboto-condensed';
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+
+    <style lang='scss' is:global>
+      @import '../sass/variables.scss';
+      @import '../sass/mixins.scss';
+      html {
+        scroll-behavior: smooth;
+
+        @media (max-width: 50rem) {
+          font-size: 80%;
+        }
+      }
+
+      body {
+        margin: 0;
+      }
+
+      h1 {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 5rem;
+      }
+
+      h2 {
+        font-family: 'Roboto Condensed', sans-serif;
+        text-transform: uppercase;
+        margin: 0;
+        color: $orange-web;
+        margin-bottom: 1em;
+      }
+
+      h4 {
+        font-family: 'Roboto Condensed', sans-serif;
+        color: $platinum;
+        font-size: 3.2rem;
+        font-weight: 600;
+        margin: 0;
+        margin-bottom: 1em;
+      }
+
+      code {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+          Bitstream Vera Sans Mono, Courier New, monospace;
+      }
+    </style>
+  </body>
+  <script src='https://kit.fontawesome.com/f4df587ce4.js' crossorigin='anonymous'
+  ></script>
+</html>

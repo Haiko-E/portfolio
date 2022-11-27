@@ -1,0 +1,131 @@
+---
+import '../sass/styles.scss';
+import '../sass/_variables.scss';
+import '@splidejs/splide/css';
+---
+
+<section id='image-carousel' class='splide' aria-label='Beautiful Images'>
+  <div class='splide__track'>
+    <ul class='splide__list'>
+      <li class='splide__slide'>
+        <img
+          src='https://images.unsplash.com/photo-1663615280810-81f2f47f3b23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'
+          alt=''
+        />
+      </li>
+      <li class='splide__slide'>
+        <img
+          src='https://images.unsplash.com/photo-1663666964492-0b8b83a6dd18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80'
+          alt=''
+        />
+      </li>
+      <li class='splide__slide'>
+        <div class='project'>
+          <div>June 2022</div>
+          <h4>Yelpcamp</h4>
+          <p>description of my project</p>
+          <ul class='project__tags'>
+            <li>#Astro</li>
+            <li>#Sanity</li>
+            <li>#Mininmal Javascript</li>
+          </ul>
+        </div>
+        <img
+          src='https://images.unsplash.com/photo-1663659515592-bd9f8a87fdb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
+          alt=''
+        />
+      </li>
+    </ul>
+  </div>
+  <ul class='splide__pagination'></ul>
+</section>
+
+<style lang='scss'>
+  @import '../sass/_variables.scss';
+  @import '../sass/styles.scss';
+
+  .splide__slide {
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(
+        to top,
+        hsla(0, 0%, 0%),
+        hsla(0, 0%, 10%, 0.6),
+        hsla(0, 0%, 40%, 0.4),
+        hsla(0, 0%, 70%, 0.3),
+        hsla(0, 0%, 100%, 0.1)
+      );
+    }
+  }
+
+  .splide__slide img {
+    display: inline-block;
+    position: relative;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100vh;
+    transition: all 300ms ease-in-out;
+  }
+
+  .splide__pagination {
+    bottom: 5.5em !important;
+  }
+
+  .project {
+    padding: 10px 0;
+    overflow: hidden;
+    width: 80vw;
+    z-index: 2;
+    color: $platinum;
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    right: -10%;
+    border-bottom: 1px solid $platinum;
+    cursor: pointer;
+
+    &:hover ~ img {
+      transform: scale(110%);
+    }
+
+    &:hover {
+      p {
+        opacity: 1;
+        margin: 0;
+        padding-bottom: 5rem;
+      }
+    }
+
+    h4 {
+      margin-top: 0.2em;
+      margin-bottom: 1em;
+      font-size: 4rem;
+    }
+    p {
+      transition: all ease-in-out 300ms;
+      opacity: 0;
+      height: 0;
+      padding-bottom: 0rem;
+    }
+
+    ul {
+      padding: 0;
+      display: flex;
+      list-style: none;
+    }
+
+    li {
+      padding-right: 1em;
+    }
+  }
+</style>
+
+<script>
+  import '../ts/projects';
+</script>

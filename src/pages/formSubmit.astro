@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title='HAIKO.E.DEV | Creating Code from Designs'>
+  <div class='form-succes'>
+    <div class='form-succes__container scale-in-center'>
+      <h2>Succesfull</h2>
+      <p>Your message has successfully been send, I'll keep in touch</p>
+      <a class='btn btn-custom' href='/'>Back to home</a>
+    </div>
+  </div>
+</Layout>
+
+<style lang='scss'>
+  @import '../sass/styles.scss';
+  @import '../sass/_variables.scss';
+  @import '../sass/_components.scss';
+
+  .scale-in-center {
+    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  @-webkit-keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .form-succes {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $black;
+    width: 100%;
+    height: 100vh;
+
+    &__container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: $platinum;
+      padding: 2rem;
+
+      p {
+        margin-bottom: 2em;
+      }
+    }
+  }
+</style>

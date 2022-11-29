@@ -27,6 +27,7 @@
       name='myform'
       method='post'
       data-netlify='true'
+      action='/formSubmit'
     >
       <label for='first'>Name</label>
       <div class='contact-form__items'>
@@ -173,7 +174,7 @@
         >
       </div>
 
-      <a id='btn-submit' class='btn'>Send message</a>
+      <a rel='prefetch' id='btn-submit' class='btn btn-disabled'>Send message</a>
     </form>
   </div>
 </section>
@@ -252,7 +253,7 @@
       width: 100%;
       color: inherit;
       margin-bottom: 3em;
-      padding: 0.6rem 1.5rem;
+      padding: 0.6rem 40px;
       border-radius: 0.6rem;
       outline: rgba(255, 255, 255, 0.062) solid 1px;
       outline-offset: -2px;
@@ -264,8 +265,13 @@
         outline: 1px solid $orange-web;
       }
     }
-    &__items input {
-      padding-left: 2.2rem;
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      -webkit-text-fill-color: $platinum;
+      transition: background-color 5000s ease-in-out 0s;
     }
 
     &__items {

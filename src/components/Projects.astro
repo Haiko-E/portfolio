@@ -1,7 +1,8 @@
 ---
-import '../sass/styles.scss';
-import '../sass/_variables.scss';
-import '@splidejs/splide/css';
+import { getFirstProject } from '../sanity/api.js';
+
+const data = await getFirstProject();
+console.log(data[0].tag[0]);
 ---
 
 <section id='image-carousel' class='splide' aria-label='Beautiful Images'>
@@ -22,7 +23,7 @@ import '@splidejs/splide/css';
       <li class='splide__slide'>
         <div class='project'>
           <div>June 2022</div>
-          <h4>Yelpcamp</h4>
+          <h4>Yelpcampd</h4>
           <p>description of my project</p>
           <ul class='project__tags'>
             <li>#Astro</li>
@@ -41,8 +42,9 @@ import '@splidejs/splide/css';
 </section>
 
 <style lang='scss'>
-  @import '../sass/_variables.scss';
+  @import '../sass/variables.scss';
   @import '../sass/styles.scss';
+  @import '@splidejs/splide/css';
 
   .splide__slide {
     &::after {

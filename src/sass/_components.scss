@@ -1,3 +1,6 @@
+@import './variables';
+// BUTTON
+
 .btn {
   position: relative;
   box-sizing: border-box;
@@ -21,7 +24,6 @@
     left: 0;
     z-index: -1;
     transition: all 400ms;
-
     transform: skew(-30deg) translateX(-115%);
   }
 
@@ -31,5 +33,39 @@
     &::before {
       transform: translateX(0);
     }
+  }
+}
+
+.btn-custom {
+  background-color: $orange-web;
+  color: black;
+  border: 1px solid $orange-web;
+
+  &::before {
+    background-color: $platinum;
+  }
+
+  &:hover {
+    border: 1px solid black;
+  }
+}
+
+.btn-disabled {
+  border: 1px solid rgba(128, 128, 128, 0.336);
+  color: rgba(128, 128, 128, 0.336);
+  pointer-events: none;
+}
+
+// SVG LINKS, WRAP THIS CLASS WITH AN A TAG
+
+.svg-link {
+  width: 24px;
+  height: 24px;
+  fill: $platinum;
+  transform: scale(100%);
+  transition: transform 100ms;
+
+  &:hover {
+    transform: scale(115%);
   }
 }

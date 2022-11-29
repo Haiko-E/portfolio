@@ -13,11 +13,14 @@
     "@fontsource/roboto": "^4.5.8",
     "@fontsource/roboto-condensed": "^4.5.9",
     "@fontsource/roboto-mono": "^4.5.8",
+    "@sanity/image-url": "^1.0.1",
     "@splidejs/splide": "^4.1.1",
     "astro": "^1.1.7",
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
+    "@astrojs/prefetch": "^0.1.1",
+    "astro-sanity": "^1.0.0",
     "sass": "^1.54.9"
   }
 }

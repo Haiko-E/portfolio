@@ -1,5 +1,6 @@
 ---
 import { getFirstProject } from '../sanity/api.js';
+import '@splidejs/splide/css';
 
 const data = await getFirstProject();
 console.log(data[0].tag[0]);
@@ -44,7 +45,6 @@ console.log(data[0].tag[0]);
 <style lang='scss'>
   @import '../sass/variables.scss';
   @import '../sass/styles.scss';
-  @import '@splidejs/splide/css';
 
   .splide__slide {
     &::after {

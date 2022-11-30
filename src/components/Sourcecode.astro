@@ -26,7 +26,7 @@ import '@fontsource/roboto';
 
   .source-code {
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
     background-color: $platinum;
     position: relative;
@@ -38,6 +38,7 @@ import '@fontsource/roboto';
     &__image {
       overflow: hidden;
       width: 50%;
+
       @media only screen and (max-width: $media-medium) {
         width: 100%;
         height: 500px;
@@ -60,6 +61,7 @@ import '@fontsource/roboto';
       @media only screen and (max-width: $media-medium) {
         width: 100%;
         padding: 5rem 0rem;
+        flex: 1;
       }
 
       h4 {

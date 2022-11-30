@@ -103,6 +103,10 @@ const data = await getFirstProject();
   @import '../sass/variables.scss';
   @import '../sass/styles.scss';
 
+  .splide {
+    height: 100vh;
+  }
+
   .splide__slide {
     &::after {
       content: '';
@@ -122,13 +126,17 @@ const data = await getFirstProject();
     }
   }
 
+  .splide__track {
+    height: 100%;
+  }
+
   .splide__slide img {
     display: inline-block;
     position: relative;
     object-fit: cover;
     object-position: center;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     transition: all 300ms ease-in-out;
   }
 

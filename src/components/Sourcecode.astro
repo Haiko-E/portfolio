@@ -26,23 +26,23 @@ import '@fontsource/roboto';
 
   .source-code {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-color: $platinum;
     position: relative;
 
-    @media (max-width: $media-medium) {
+    @media only screen and (max-width: $media-medium) {
       flex-direction: column;
     }
 
     &__image {
       overflow: hidden;
       width: 50%;
-
-      @media (max-width: $media-medium) {
+      @media only screen and (max-width: $media-medium) {
         width: 100%;
-        height: 50%;
+        height: 500px;
       }
+
       img {
         width: 100%;
         height: 100%;
@@ -57,9 +57,9 @@ import '@fontsource/roboto';
       flex-direction: column;
       width: 50%;
 
-      @media (max-width: $media-medium) {
+      @media only screen and (max-width: $media-medium) {
         width: 100%;
-        height: 50%;
+        padding: 5rem 0rem;
       }
 
       h4 {
@@ -68,6 +68,10 @@ import '@fontsource/roboto';
 
       p {
         margin-bottom: 5em;
+
+        @media only screen and (max-width: $media-medium) {
+          margin-bottom: 3em;
+        }
       }
     }
   }

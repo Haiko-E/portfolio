@@ -133,7 +133,11 @@ const data = await getFirstProject();
   }
 
   .splide__pagination {
-    bottom: 5.5em !important;
+    bottom: 5.5em;
+
+    @media only screen and (max-width: $media-medium) {
+      bottom: 2.5em;
+    }
   }
 
   .project {

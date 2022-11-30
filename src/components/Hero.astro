@@ -22,16 +22,24 @@
     background-position-x: var(--positionX);
     background-position-y: var(--positionY);
     background-repeat: no-repeat;
-    // background-position: -10px -10px;
     position: sticky;
     top: 0;
     min-width: 100%;
     min-height: 100vh;
     transform: rotate(45);
 
+    @media only screen and (max-width: $media-medium) {
+      padding: 3rem;
+      height: auto;
+    }
+
     > h1 {
       color: $platinum;
       margin-bottom: 1em;
+
+      @media only screen and (max-width: $media-medium) {
+        font-size: 4rem;
+      }
     }
   }
 </style>

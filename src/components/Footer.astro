@@ -45,7 +45,7 @@
     align-items: center;
     position: relative;
     background-color: $black;
-    height: 40vh;
+    min-height: 40vh;
     overflow: hidden;
 
     &-container {
@@ -80,6 +80,10 @@
 
         &:not(:last-child) {
           padding-right: 3rem;
+
+          @media only screen and (max-width: $media-small) {
+            padding-right: 1rem;
+          }
         }
       }
 
@@ -87,10 +91,26 @@
         border-bottom: 1px solid $platinum-dark;
         border-top: 1px solid $platinum-dark;
       }
+
+      &:nth-last-of-type(1) {
+        p {
+          @media only screen and (max-width: $media-small) {
+            text-align: center;
+            margin-bottom: 1rem;
+          }
+        }
+        @media only screen and (max-width: $media-small) {
+          flex-direction: column;
+        }
+      }
     }
     &-logos {
       display: flex;
       align-items: center;
+
+      @media only screen and (max-width: $media-small) {
+        justify-content: space-around;
+      }
     }
   }
 </style>

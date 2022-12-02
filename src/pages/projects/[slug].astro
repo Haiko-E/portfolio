@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useSanityClient } from 'astro-sanity';
+import type { Project } from '../../ts/types/types';
+
+export async function getStaticPaths() {
+  console.log('getStaticPaths gets called');
+  const query = `*[_type == "project"]{..., backgroundimage{alttext, asset->}, "tags": tags[]->name}`;
+  const projects = await useSanityClient().fetch(query);
+  return projects.map((project: Project) => {
+    return {
+      params: { slug: project.slug.current },
+      props: { project },
+    };
+  });
+}
+---
+
+<Layout title='Project page '>Welcome to project page</Layout>

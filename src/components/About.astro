@@ -26,7 +26,7 @@
     grid-template-columns: 1fr 1fr;
     background-color: $black;
     z-index: 10;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     position: relative;
 
@@ -50,7 +50,11 @@
     align-self: center;
 
     @media only screen and (max-width: $media-medium) {
-      padding: 6rem 2rem;
+      height: 100%;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     p {

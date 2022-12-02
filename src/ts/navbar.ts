@@ -9,11 +9,17 @@ window.addEventListener('scroll', (e) => {
 });
 
 const hamburger = document.querySelector<HTMLElement>('.menu')!;
-const navPrim = document.querySelector<HTMLElement>('.nav-links')!;
+const navLinks = document.querySelector<HTMLElement>('.nav-links')!;
 
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
-  navPrim.classList.toggle('show');
+  navLinks.classList.toggle('show');
+  nav.classList.toggle('nav-height');
+});
+
+navLinks.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('show');
   nav.classList.toggle('nav-height');
 });
 

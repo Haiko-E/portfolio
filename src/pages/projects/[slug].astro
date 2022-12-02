@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { useSanityClient } from 'astro-sanity';
 import type { Project } from '../../ts/types/types';
+import ProjectItem from '../../components/ProjectItem.astro';
 
 export async function getStaticPaths() {
   console.log('getStaticPaths gets called');
@@ -14,6 +15,10 @@ export async function getStaticPaths() {
     };
   });
 }
+
+const { project } = Astro.props;
 ---
 
-<Layout title='Project page '>Welcome to project page</Layout>
+<Layout title={`Project page -- ${project.title} `}>
+  <ProjectItem project={project} isClickable={false} />
+</Layout>

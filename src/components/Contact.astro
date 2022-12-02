@@ -189,7 +189,7 @@
     justify-content: center;
     color: $white;
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     background-color: $black;
     @media only screen and (max-width: $media-medium) {
       padding: 5rem 0;
@@ -244,8 +244,6 @@
     width: 100%;
     text-transform: uppercase;
     color: $platinum;
-    // display: flex;
-    // flex-direction: column;
     margin-top: 7rem;
     @media (max-width: $media-medium) {
       margin-top: 4rem;
@@ -282,6 +280,9 @@
         caret-color: $orange-web;
         outline: 1px solid $orange-web;
       }
+    }
+    textarea {
+      padding: 0.6rem 1rem;
     }
 
     input:-webkit-autofill,

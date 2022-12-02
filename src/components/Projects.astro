@@ -1,9 +1,10 @@
 ---
-import { getFirstProject, formatDate, urlForImage } from '../sanity/api.js';
+import { getFirstProject } from '../sanity/api.js';
 import '@splidejs/splide/css';
 import type { Project } from '../ts/types/types.js';
+import ProjectItem from './ProjectItem.astro';
 
-const data = await getFirstProject();
+const data: Project[] = await getFirstProject();
 ---
 
 <section id='image-carousel' class='splide' aria-label='Beautiful Images'>
@@ -13,22 +14,7 @@ const data = await getFirstProject();
         data.map((project: Project) => {
           return (
             <li class='splide__slide'>
-              <div class='project'>
-                <div class='project-date'>{formatDate(project.date)}</div>
-                <h4>{project.title}</h4>
-                <p>{project.description}</p>
-                <ul class='project__tags'>
-                  {project.tags.map((tag) => (
-                    <li>{tag}</li>
-                  ))}
-                </ul>
-              </div>
-              <img
-                src={urlForImage(project.backgroundimage.asset.url)
-                  .auto('format')
-                  .url()}
-                alt={project.backgroundimage.alttext}
-              />
+              <ProjectItem project={project} isClickable={true} />
             </li>
           );
         })
@@ -115,70 +101,27 @@ const data = await getFirstProject();
       bottom: 2.5em;
     }
   }
-
-  .project {
-    padding: 10px 0;
-    overflow: hidden;
-    width: 80vw;
-    z-index: 2;
-    color: $platinum;
-    position: absolute;
-    bottom: 20%;
-    left: 10%;
-    right: -10%;
-    border-bottom: 1px solid $platinum;
-    cursor: pointer;
-
-    &:hover ~ img {
-      transform: scale(110%);
-    }
-
-    &:hover {
-      p {
-        opacity: 1;
-        margin: 0;
-        margin-bottom: 3rem;
-      }
-    }
-
-    &-date {
-      @media (max-width: $media-medium) {
-        text-align: center;
-      }
-    }
-
-    h4 {
-      margin-top: 0.2em;
-      margin-bottom: 1em;
-      font-size: 4rem;
-
-      @media (max-width: $media-medium) {
-        text-align: center;
-      }
-    }
-    p {
-      transition: all ease-in-out 300ms;
-      opacity: 0;
-
-      margin-bottom: 0rem;
-    }
-
-    ul {
-      padding: 0;
-      display: flex;
-      list-style: none;
-
-      @media (max-width: $media-medium) {
-        justify-content: center;
-      }
-    }
-
-    li {
-      padding-right: 1em;
-    }
-  }
 </style>
 
 <script>
   import '../ts/projects';
 </script>
+
+<!-- <div class='project'>
+  <a href={`projects/${project.slug.current}`}>
+    <div class='project-date'>{formatDate(project.date)}</div>
+    <h4>{project.title}</h4>
+    <p>{project.description}</p>
+    <ul class='project__tags'>
+      {project.tags.map((tag) => (
+        <li>{tag}</li>
+      ))}
+    </ul>
+  </a>
+</div>
+<img
+  src={urlForImage(project.backgroundimage.asset.url)
+    .auto('format')
+    .url()}
+  alt={project.backgroundimage.alttext}
+/> -->

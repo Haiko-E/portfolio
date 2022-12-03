@@ -19,35 +19,6 @@ const data: Project[] = await getFirstProject();
           );
         })
       }
-
-      <li class='splide__slide'>
-        <img
-          src='https://images.unsplash.com/photo-1663615280810-81f2f47f3b23?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'
-          alt=''
-        />
-      </li>
-      <li class='splide__slide'>
-        <img
-          src='https://images.unsplash.com/photo-1663666964492-0b8b83a6dd18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80'
-          alt=''
-        />
-      </li>
-      <li class='splide__slide'>
-        <div class='project'>
-          <div class='project-date'>June 2022</div>
-          <h4>Yelpcamp</h4>
-          <p>description of my project</p>
-          <ul class='project__tags'>
-            <li>#Sanity</li>
-            <li>#Sanity</li>
-            <li>#Mininmal Javascript</li>
-          </ul>
-        </div>
-        <img
-          src='https://images.unsplash.com/photo-1663659515592-bd9f8a87fdb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
-          alt=''
-        />
-      </li>
     </ul>
   </div>
   <ul class='splide__pagination'></ul>
@@ -103,22 +74,3 @@ const data: Project[] = await getFirstProject();
 <script>
   import '../ts/projects';
 </script>
-
-<!-- <div class='project'>
-  <a href={`projects/${project.slug.current}`}>
-    <div class='project-date'>{formatDate(project.date)}</div>
-    <h4>{project.title}</h4>
-    <p>{project.description}</p>
-    <ul class='project__tags'>
-      {project.tags.map((tag) => (
-        <li>{tag}</li>
-      ))}
-    </ul>
-  </a>
-</div>
-<img
-  src={urlForImage(project.backgroundimage.asset.url)
-    .auto('format')
-    .url()}
-  alt={project.backgroundimage.alttext}
-/> -->

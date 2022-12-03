@@ -19,7 +19,7 @@ const {
 
 {
   isClickable === true ? (
-    <div class='container'>
+    <>
       <div class={`project ${className}`}>
         <a href={`projects/${project.slug.current}`}>
           <div class='project-date'>{formatDate(project.date)}</div>
@@ -36,9 +36,9 @@ const {
         src={urlForImage(imageURL).auto('format').url()}
         alt={project.backgroundimage.alttext}
       />
-    </div>
+    </>
   ) : (
-    <div class='container'>
+    <>
       <div class={`project ${className}`}>
         <div class='project-date'>{formatDate(project.date)}</div>
         <h4>{project.title}</h4>
@@ -53,7 +53,7 @@ const {
         src={urlForImage(imageURL).auto('format').url()}
         alt={project.backgroundimage.alttext}
       />
-    </div>
+    </>
   )
 }
 

@@ -7,7 +7,7 @@ function fadeOutLoadingScreen() {
   const logo = document.getElementById('logo');
 
   const fadeOutDuration = 2600;
-  const fadeOutLogoDuration = 2400;
+  const fadeOutLogoDuration = 1900;
 
   loader?.classList.add('add-animation');
   logo?.classList.add('fade-out');

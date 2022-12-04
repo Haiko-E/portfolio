@@ -9,7 +9,7 @@ function fadeOutLoadingScreen() {
   const fadeOutDuration = 2600;
   const fadeOutLogoDuration = 1900;
 
-  loader?.classList.add('add-animation');
+  loader?.classList.add('slide-out-top');
   logo?.classList.add('fade-out');
 
   setTimeout(function () {
@@ -19,7 +19,7 @@ function fadeOutLoadingScreen() {
   setTimeout(function () {
     console.log('set hidden to classlist');
     loader?.classList.add('hidden');
-  }, fadeOutDuration - 700);
+  }, fadeOutDuration);
 }
 
 export {};

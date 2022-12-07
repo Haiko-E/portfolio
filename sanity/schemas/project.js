@@ -57,5 +57,16 @@ export default {
         },
       ],
     },
+    {
+      name: 'gitUrl',
+      type: 'url',
+      title: 'Github URL',
+    },
+
+    {
+      name: 'deployUrl',
+      type: 'url',
+      title: 'Deployment url',
+    },
   ],
 };

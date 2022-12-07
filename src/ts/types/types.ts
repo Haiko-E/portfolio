@@ -10,6 +10,8 @@ export interface Project {
   slug: { _type: string; current: string };
   tags: string[];
   title: string;
+  deployUrl: string;
+  gitUrl: string;
 }
 
 export interface Asset {

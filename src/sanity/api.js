@@ -5,7 +5,7 @@ import { parseISO, format } from 'date-fns';
 const imageBuilder = createImageBuilder(useSanityClient());
 
 export async function getFirstProject() {
-  const query = `*[_type == "project"]{..., backgroundimage{alttext, asset->}, "tags": tags[]->name}`;
+  const query = `*[_type == "project"] | order(date desc) {..., backgroundimage{alttext, asset->}, "tags": tags[]->name}`;
   const firstProject = await useSanityClient().fetch(query);
   return firstProject;
 }

@@ -4,6 +4,7 @@ import sanity from 'astro-sanity';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://https://haikoerinkveld.dev',
   integrations: [
     prefetch(),
     sanity({

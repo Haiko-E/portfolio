@@ -4,9 +4,10 @@ Sanity TODO
 
 Astro TODO
 
-- navbar, when clicked on mobile a tag, remove navbar
 - github, make public instead of private and add the link to the github icons
 - create .env with API keys
-- make about, min height
-- create new pages for projects
--
+- change pictures to my own
+- add metatags for SEO and description
+- create a logo
+- place comments
+- add 404 page

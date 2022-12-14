@@ -1,5 +1,4 @@
-@import './styles.scss';
-
+@import './mixins.scss';
 .btn1 {
   @include btn(0px, 0px);
 

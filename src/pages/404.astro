@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title='page not found'>
+  <div class='notfound'>
+    <h1>OOPS!</h1>
+
+    <a class='btn' href='/'>GO BACK</a>
+  </div>
+</Layout>
+
+<style lang='scss'>
+  @import '../sass/styles.scss';
+  @import '../sass/_variables.scss';
+  @import '../sass/_components.scss';
+
+  .notfound {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+    color: $platinum;
+
+    h1 {
+      font-size: 10rem;
+      letter-spacing: 30px;
+      position: relative;
+    }
+
+    h1::after {
+      content: "404 - PAGE CAN'T BE FOUND";
+      min-width: 20rem;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      position: absolute;
+      bottom: 1px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background-color: black;
+      padding: 15px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    a {
+      position: absolute;
+      bottom: 6rem;
+    }
+  }
+</style>

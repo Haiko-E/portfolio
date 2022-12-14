@@ -1,0 +1,43 @@
+---
+import type { Project } from '../ts/types/types';
+export interface Props {
+  title: string;
+  project?: Project;
+}
+const { title, project } = Astro.props;
+---
+
+<head>
+  <!-- CORE -->
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width' />
+  <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+  <meta name='generator' content={Astro.generator} />
+  <meta
+    name='description'
+    content='Dev page of Haiko Erinkveld. Web developer who creates code from your design'
+  />
+
+  <!-- OPEN GRAPH -->
+  <meta property='og:site_name' content='Haiko Erinkveld' />
+  <meta property='og:title' content={project?.title || title} />
+  <meta
+    property='og:description'
+    content={project?.description ||
+      'Dev page of Haiko Erinkveld. Web developer who creates code from your design'}
+  />
+  <meta property='og:type' content='website' />
+  <meta
+    property='og:url'
+    content={project
+      ? `https://haikoerinkveld.dev/${project?.slug.current}`
+      : 'https://haikoerinkveld.dev'}
+  />
+  <meta
+    property='og:image'
+    content={project?.backgroundimage.asset.url ||
+      'https://res.cloudinary.com/dxqagufcd/image/upload/v1671046380/Portfolio/Schermafbeelding_2022-12-14_203224_rq7jml.png'}
+  />
+
+  <title>{title}</title>
+</head>

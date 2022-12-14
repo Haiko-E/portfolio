@@ -17,7 +17,6 @@ function fadeOutLoadingScreen() {
   }, fadeOutLogoDuration);
 
   setTimeout(function () {
-    console.log('set hidden to classlist');
     loader?.classList.add('hidden');
   }, fadeOutDuration);
 }

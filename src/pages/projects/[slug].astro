@@ -5,7 +5,6 @@ import type { Project } from '../../ts/types/types';
 import ProjectItem from '../../components/ProjectItem.astro';
 
 export async function getStaticPaths() {
-  console.log('getStaticPaths gets called');
   const query = `*[_type == "project"]{..., backgroundimage{alttext, asset->}, "tags": tags[]->name}`;
   const projects = await useSanityClient().fetch(query);
   return projects.map((project: Project) => {
@@ -19,7 +18,7 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 ---
 
-<Layout title={`Project page -- ${project.title} `}>
+<Layout title={`Project page -- ${project.title} `} project={project}>
   <ProjectItem className={'project-item'} project={project} isClickable={false} />
 </Layout>
 

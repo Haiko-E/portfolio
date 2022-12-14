@@ -1,16 +1,24 @@
 ---
-export interface Props {
-  title: string;
-}
-const { title } = Astro.props;
+/* IMPORTS */
 import '@fontsource/roboto-condensed';
 import '@fontsource/roboto';
 import Loadingscreen from '../components/Loadingscreen.astro';
+import type { Project } from '../ts/types/types';
+import Head from '../components/Head.astro';
+
+/* TYPES */
+export interface Props {
+  title: string;
+  project?: Project;
+}
+
+/* PROPS */
+const { title, project } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang='en'>
-  <head>
+  <!-- <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
@@ -20,7 +28,10 @@ import Loadingscreen from '../components/Loadingscreen.astro';
       content='Dev page of Haiko Erinkveld. Web developer who creates code from your design'
     />
     <title>{title}</title>
-  </head>
+  </head> -->
+
+  <Head title={title} project={project} />
+
   <body>
     <Loadingscreen />
     <slot />
@@ -70,12 +81,7 @@ import Loadingscreen from '../components/Loadingscreen.astro';
           Bitstream Vera Sans Mono, Courier New, monospace;
       }
     </style>
+    <script src='https://kit.fontawesome.com/f4df587ce4.js' crossorigin='anonymous'
+    ></script>
   </body>
-  <script>
-    window.addEventListener('load', () => {
-      console.log('loading screen');
-    });
-  </script>
-  <script src='https://kit.fontawesome.com/f4df587ce4.js' crossorigin='anonymous'
-  ></script>
 </html>

@@ -15,7 +15,8 @@ const { title, project } = Astro.props;
   <meta name='generator' content={Astro.generator} />
   <meta
     name='description'
-    content='Dev page of Haiko Erinkveld. Web developer who creates code from your design'
+    content={project?.description ||
+      'Dev page of Haiko Erinkveld. Web developer who creates code from your design'}
   />
 
   <!-- OPEN GRAPH -->

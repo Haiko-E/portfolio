@@ -1,7 +1,7 @@
-@import './variables.scss';
-@import './mixins.scss';
-@import './components.scss';
-@import './hamburger.scss';
+@use 'variables';
+@use 'mixins';
+@use 'components';
+@use 'hamburger';
 
 * {
   margin: 0;

@@ -3,7 +3,7 @@ const aboutSection = document.querySelector('.about')!;
 
 // Intersection observer to check if navbar needs blur when 90% of section is visible
 let options = {
-  threshold: 0.9,
+  threshold: 0.8,
 };
 
 let observer = new IntersectionObserver((entries, observer) => {
@@ -21,7 +21,7 @@ let observer = new IntersectionObserver((entries, observer) => {
 
 observer.observe(aboutSection);
 
-// Second option for the intersection observer
+// Second option for the intersection observer (more client side javascript option)
 
 // window.addEventListener('scroll', (e) => {
 //   if (window.scrollY > 850) {

@@ -19,7 +19,6 @@ const { title, project } = Astro.props;
 <!DOCTYPE html>
 <html lang='en'>
   <Head title={title} project={project} />
- 
 
   <body>
     <Loadingscreen />
@@ -27,7 +26,23 @@ const { title, project } = Astro.props;
 
     <style lang='scss' is:global>
       @import '../sass/variables.scss';
-      
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
       html {
         scroll-behavior: smooth;
 
@@ -66,7 +81,7 @@ const { title, project } = Astro.props;
         font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
           Bitstream Vera Sans Mono, Courier New, monospace;
       }
-    </style>   
+    </style>
     <script src='https://kit.fontawesome.com/f4df587ce4.js' crossorigin='anonymous'
     ></script>
   </body>

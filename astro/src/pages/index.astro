@@ -10,12 +10,13 @@ import Contact from '../components/Contact.astro';
 import Bar from '../components/Bar.astro';
 import Sourcecode from '../components/Sourcecode.astro';
 import Footer from '../components/Footer.astro';
-import FormSubmit from './formSubmit.astro';
+
 ---
 
 <Layout title='HAIKO ERINKVELD | Creating Code from Designs'>
+  <Navbar />
   <main>
-    <Navbar />
+    
     <Hero />
     <About />
     <Work />
@@ -23,6 +24,7 @@ import FormSubmit from './formSubmit.astro';
     <Bar className='center' />
     <Contact />
     <Sourcecode />
-    <Footer />
+    
   </main>
+  <Footer />
 </Layout>

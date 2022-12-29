@@ -4,20 +4,21 @@ import '../sass/styles.scss';
 import '../sass/hamburger.scss';
 ---
 
-<nav class='nav nav-height'>
+<nav id='nav' aria-label='Main' role='navigation' class='nav nav-height'>
   <div class='nav-logo'>
-    <a href='#'>
+    <a aria-label='Go home' href='#'>
       <span><strong>HAIKO</strong> ERINKVELD</span>
     </a>
   </div>
   <div class='nav-links'>
     <div class='nav-primary'>
-      <a href='#about'>About</a>
-      <a href='#image-carousel'>Projects</a>
-      <a href='#contact'>Contact</a>
+      <a aria-label='Go to about me' href='#about'>About</a>
+      <a aria-label='Go to my projects' href='#image-carousel'>Projects</a>
+      <a aria-label='Go to contact me ' href='#contact'>Contact</a>
+      <a aria-label='Go to the source code ' href='#source'>Source</a>
     </div>
     <div class='nav-secondary'>
-      <a href='https://github.com/Haiko-E'>
+      <a aria-label='Go to my github page' href='https://github.com/Haiko-E'>
         <svg xmlns='http://www.w3.org/2000/svg' class='svg-link' viewBox='0 0 24 24'>
           <path
             fill-rule='evenodd'
@@ -65,16 +66,15 @@ import '../sass/hamburger.scss';
   .nav-logo {
     position: absolute;
     top: 15px;
-    left: 20%;
+    left: 10%;
     font-family: 'Roboto Mono';
   }
 
   .nav-links {
     position: absolute;
     top: 15px;
-    right: 20%;
+    right: 10%;
     display: flex;
-    height: fit-content;
 
     a {
       letter-spacing: 1.5px;
@@ -89,7 +89,7 @@ import '../sass/hamburger.scss';
       opacity: 0;
       position: absolute;
       top: 25px;
-      left: 20%;
+      left: 10%;
 
       a:first-child {
         margin-left: 0;
@@ -120,7 +120,7 @@ import '../sass/hamburger.scss';
   .nav-mobile {
     position: absolute;
     top: 8px;
-    right: 20%;
+    right: 0.5rem;
 
     @media only screen and (min-width: $media-medium) {
       display: none;

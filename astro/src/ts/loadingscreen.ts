@@ -1,5 +1,12 @@
+const loadingScreen = document.querySelector('#loading-screen');
+
+if (localStorage.getItem('InitialLoad') === 'false') {
+  loadingScreen?.remove();
+}
+
 window.addEventListener('load', () => {
   fadeOutLoadingScreen();
+  localStorage.setItem('InitialLoad', 'false');
 });
 
 function fadeOutLoadingScreen() {

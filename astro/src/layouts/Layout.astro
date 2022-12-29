@@ -19,6 +19,7 @@ const { title, project } = Astro.props;
 <!DOCTYPE html>
 <html lang='en'>
   <Head title={title} project={project} />
+ 
 
   <body>
     <Loadingscreen />
@@ -26,9 +27,8 @@ const { title, project } = Astro.props;
 
     <style lang='scss' is:global>
       @import '../sass/variables.scss';
-      @import '../sass/mixins.scss';
+      
       html {
-        min-height: 100%;
         scroll-behavior: smooth;
 
         @media (max-width: 50rem) {
@@ -37,9 +37,7 @@ const { title, project } = Astro.props;
       }
 
       body {
-        min-height: 100%;
         font-family: 'Roboto';
-        margin: 0;
       }
 
       h1 {
@@ -55,7 +53,7 @@ const { title, project } = Astro.props;
         margin-bottom: 1em;
       }
 
-      h4 {
+      h3 {
         font-family: 'Roboto Condensed', sans-serif;
         color: $platinum;
         font-size: 3.2rem;
@@ -68,7 +66,7 @@ const { title, project } = Astro.props;
         font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
           Bitstream Vera Sans Mono, Courier New, monospace;
       }
-    </style>
+    </style>   
     <script src='https://kit.fontawesome.com/f4df587ce4.js' crossorigin='anonymous'
     ></script>
   </body>

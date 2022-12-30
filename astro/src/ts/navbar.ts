@@ -15,7 +15,6 @@ let observer = new IntersectionObserver((entries, observer) => {
     } else {
       return;
     }
-    console.log(entry);
   });
 }, options);
 

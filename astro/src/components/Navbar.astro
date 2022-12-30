@@ -1,9 +1,16 @@
 ---
 import '@fontsource/roboto-mono';
 import '../sass/hamburger.scss';
+
+const { className } = Astro.props;
 ---
 
-<nav id='nav' aria-label='Main' role='navigation' class='nav nav-height'>
+<nav
+  id='nav'
+  aria-label='Main'
+  role='navigation'
+  class={`${className} nav nav-height`}
+>
   <div class='nav-logo'>
     <a aria-label='Go home' href='#'>
       <span><strong>HAIKO</strong> ERINKVELD</span>

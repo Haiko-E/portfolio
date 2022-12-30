@@ -1,7 +1,8 @@
 ---
+const { className } = Astro.props;
 ---
 
-<footer class='footer'>
+<footer class={`${className} footer`}>
   <div class='footer-container'>
     <div class='footer-item'>
       <svg

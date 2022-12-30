@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import prefetch from '@astrojs/prefetch';
 import sanity from 'astro-sanity';
 
-import sitemap from '@astrojs/sitemap';
+// import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,6 +15,6 @@ export default defineConfig({
       apiVersion: '2021-03-25',
       useCdn: true,
     }),
-    sitemap(),
+    // sitemap(),
   ],
 });

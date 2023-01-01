@@ -58,10 +58,14 @@ const observer = new IntersectionObserver((entries, observer) => {
 observer.observe(contactSection);
 
 // SUBMITTING
-submitButton.addEventListener('click', (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  console.log('submitting');
   playAnimation();
-  const formData = new FormData(form);
+
+  const myForm = e.target as HTMLFormElement;
+  const formData = new FormData(myForm);
 
   fetch('/', {
     method: 'POST',
@@ -80,7 +84,32 @@ submitButton.addEventListener('click', (e) => {
         messageInput.value = '';
       }, 4000);
     })
-    .catch((error) => alert(error));
+    .catch((error) => alert('Error ' + error));
+});
+
+submitButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  console.dir(form);
+
+  const newForm = new FormData(form);
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(newForm.toString()),
+  })
+    .then(() => {
+      console.log('Form successfully submitted');
+      const nameInput = form[0] as HTMLInputElement;
+      const emailInput = form[1] as HTMLInputElement;
+      const messageInput = form[2] as HTMLTextAreaElement;
+
+      setTimeout(() => {
+        nameInput.value = '';
+        emailInput.value = '';
+        messageInput.value = '';
+      }, 4000);
+    })
+    .catch((error) => alert('Error ' + error));
 });
 
 export {};

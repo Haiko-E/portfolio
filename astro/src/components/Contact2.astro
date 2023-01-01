@@ -1,0 +1,457 @@
+---
+---
+
+<section id='contact' class='contact'>
+  <div class='contact__box'>
+    <div class='contact__envelope'>
+      <svg
+        id='Envelope'
+        xmlns='http://www.w3.org/2000/svg'
+        viewBox='-0 -200 458 660'
+      >
+        <title>mail-envelope-closed</title>
+
+        <polyline
+          class='cls-1 test1'
+          pathLength='1'
+          points='456.5 1.5 229 127.5 1.5 1.5'></polyline>
+
+        <rect
+          class='cls-1 test'
+          x='1.5'
+          y='1.5'
+          pathLength='1'
+          width='455'
+          height='252'></rect>
+      </svg>
+    </div>
+
+    <div class='contact__content'>
+      <h2>Let's Talk</h2>
+      <h3>Enter your message</h3>
+      <form
+        id='myform'
+        class='contact__form'
+        name='myform'
+        method='post'
+        data-netlify='true'
+        action='#contact'
+      >
+        <div class='contact__inputs'>
+          <div class='contact__inputs-wrapper'>
+            <input
+              required
+              placeholder='Name'
+              class='input'
+              type='text'
+              name='name'
+              id='name'
+            />
+            <label class='label' for='name'>Name</label>
+            <span id='invalid-name' class='invalid'></span>
+          </div>
+          <div class='contact__inputs-wrapper'>
+            <input
+              placeholder='Email'
+              class='input'
+              type='email'
+              name='email'
+              id='email'
+            />
+            <label class='label' for='email'>Email</label>
+            <span id='invalid-email' class='invalid'></span>
+          </div>
+        </div>
+        <div class='contact__inputs-wrapper'>
+          <textarea
+            placeholder='Message'
+            class='input'
+            name='message'
+            id='message'
+            rows='1'
+            cols='60'></textarea>
+          <label class='label' for='message'>Message</label>
+          <span id='invalid-message' class='invalid'></span>
+        </div>
+        <div class='contact__submit'>
+          <a id='submit' class='btn btn-disabled' href=''>SUBMIT FORM</a>
+          <div class='contact__info'>
+            <p>haiko.erinkveld@gmail.com</p>
+            <p>+31 6 11372744</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style lang='scss'>
+  @import '../sass/_variables.scss';
+  @import '../sass/_components.scss';
+
+  .invalid {
+    color: $orange-web;
+    font-size: 0.7rem;
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+  }
+
+  //CONTACT LEFT SIDE
+
+  svg {
+    width: 70%;
+    max-width: 220px;
+    fill: transparent;
+  }
+
+  .reverse-animation {
+    animation: scale-out 1s reverse backwards;
+
+    .test1 {
+      animation: stroke 1s linear reverse backwards 1000ms,
+        close 1000ms reverse backwards 1500ms;
+    }
+
+    .test {
+      animation: stroke 1s linear reverse backwards 1000ms;
+    }
+
+    .contact__content {
+      animation: flip-right 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) reverse
+        backwards 2000ms;
+    }
+  }
+
+  .play-animation {
+    animation: scale-out 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 2900ms forwards,
+      scale-out 0.5s reverse forwards 5s;
+
+    svg {
+      animation: send 1000ms forwards 1000ms, send 1000ms reverse forwards 4000ms;
+    }
+
+    .test1 {
+      animation: close 1000ms forwards, stroke 0.8s linear alternate forwards 2000ms,
+        stroke 1s linear reverse forwards 5900ms,
+        close 1000ms reverse forwards 6900ms;
+    }
+
+    .test {
+      animation: stroke 1s linear alternate forwards 1900ms,
+        stroke 1s linear reverse forwards 5900ms;
+    }
+
+    .contact__content {
+      animation: flip-right 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards
+          1700ms,
+        flip-right 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) reverse forwards 5500ms;
+    }
+  }
+
+  .cls-1 {
+    stroke: orange;
+    stroke-width: 3px;
+  }
+
+  .test {
+    stroke: orange;
+    stroke-width: 3px;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+  .test1 {
+    transform: rotateX(-180deg);
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+
+  @keyframes close {
+    0% {
+      transform: rotateX(-180deg);
+    }
+
+    100% {
+      transform: rotateX(0deg);
+    }
+  }
+
+  @keyframes send {
+    0% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(-10%);
+    }
+
+    80% {
+      transform: translateX(30%);
+    }
+
+    100% {
+      transform: translateX(20%);
+    }
+  }
+
+  @keyframes stroke {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: 1;
+    }
+  }
+
+  // CONTACT RIGHT SIDE
+
+  .contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    position: relative;
+    min-height: 100vh;
+    background-color: $black;
+
+    @media only screen and (max-width: $media-medium) {
+      padding: 5rem 0;
+      min-height: auto;
+    }
+
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    h3 {
+      margin-bottom: 2rem;
+    }
+
+    &__inputs {
+      display: flex;
+
+      @media only screen and (max-width: $media-medium) {
+        flex-direction: column;
+      }
+
+      &-wrapper {
+        width: 100%;
+        position: relative;
+
+        input:-webkit-autofill,
+        textarea:-webkit-autofill,
+        select:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 1000px rgb(19, 19, 19) inset !important;
+          -webkit-text-fill-color: $platinum !important;
+          border-bottom: 1px solid rgb(70, 70, 70) !important;
+        }
+
+        // .input:-webkit-autofill {
+        //   padding: 0.2rem 0;
+        //   font-size: 0.8rem;
+        // }
+
+        .input {
+          margin-bottom: 3rem;
+          font-family: inherit;
+          caret-color: rgba(187, 187, 187, 0.2);
+          color: $platinum;
+          padding: 0.5rem 0;
+          background-color: transparent;
+          border: none;
+          border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+          resize: none;
+          width: 100%;
+
+          &:focus,
+          :active {
+            outline: none;
+          }
+        }
+
+        .input::placeholder {
+          color: rgba(128, 128, 128, 0.5);
+          font-size: 0.7rem;
+        }
+
+        .input:placeholder-shown + .label {
+          opacity: 0;
+          top: 4px;
+        }
+
+        .label {
+          color: rgba(128, 128, 128, 0.5);
+          position: absolute;
+          top: -12px;
+          left: 0;
+          transition: all 100ms ease-in-out;
+          font-size: 0.7rem;
+        }
+
+        textarea {
+          max-height: 100px;
+
+          &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            background-color: #f5f5f571;
+          }
+
+          &::-webkit-scrollbar {
+            width: 6px;
+            background-color: #f5f5f500;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #1d1d1d;
+          }
+        }
+      }
+
+      &-wrapper:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+
+    &__box {
+      opacity: 0; // go's to 1 when the intersection observer hits
+      display: flex;
+      padding: 4rem 4rem 4rem 0;
+      height: fit-content;
+      width: 80%;
+      background-color: rgb(19, 19, 19);
+
+      @media only screen and (max-width: $media-small) {
+        width: 100%;
+      }
+    }
+
+    &__envelope {
+      padding: 1.3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40%;
+
+      @media only screen and (max-width: $media-medium) {
+        width: 50%;
+      }
+    }
+
+    &__content {
+      margin-left: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      width: 60%;
+
+      @media only screen and (max-width: $media-medium) {
+        width: 50%;
+      }
+    }
+
+    &__form {
+    }
+
+    &__info {
+      @media only screen and (max-width: $media-medium) {
+        margin-top: 1rem;
+      }
+    }
+
+    &__submit {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      @media only screen and (max-width: $media-medium) {
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      a {
+        font-size: 0.7rem;
+        padding: 1rem 1.6rem;
+      }
+
+      p {
+        padding-left: 2rem;
+        font-size: 0.8rem;
+        color: rgba(128, 128, 128, 0.5);
+        @media only screen and (max-width: $media-medium) {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  .flip-right {
+    -webkit-animation: flip-out-ver-right 0.45s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+      both;
+    animation: flip-out-ver-right 0.45s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  }
+
+  @-webkit-keyframes flip-right {
+    0% {
+      -webkit-transform: rotateY(0);
+      transform: rotateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotateY(70deg);
+      transform: rotateY(70deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes flip-right {
+    0% {
+      -webkit-transform: rotateY(0);
+      transform: rotateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotateY(70deg);
+      transform: rotateY(70deg);
+      opacity: 0;
+    }
+  }
+
+  .scale-out-center {
+    -webkit-animation: scale-out 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    animation: scale-out 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  }
+
+  @-webkit-keyframes scale-out {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 1;
+    }
+  }
+  @keyframes scale-out {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  import '../ts/contact2.ts';
+  import '../ts/validateForm.ts';
+</script>

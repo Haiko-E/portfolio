@@ -10,16 +10,6 @@ const { className } = Astro.props;
         viewBox='0 0 300 300'
         xmlns='http://www.w3.org/2000/svg'
       >
-        <defs>
-          <style>
-            .cls-1 {
-              fill: #f9b233;
-            }
-            .cls-2 {
-              fill: #1d1d1b;
-            }
-          </style>
-        </defs>
         <title>favicon</title>
         <g data-name='Laag 2'>
           <g data-name='Laag 1'>
@@ -63,6 +53,13 @@ const { className } = Astro.props;
 <style lang='scss'>
   @import '../sass/_variables.scss';
   @import '../sass/_components.scss';
+
+  .cls-1 {
+    fill: #f9b233;
+  }
+  .cls-2 {
+    fill: #1d1d1b;
+  }
 
   .footer {
     display: flex;

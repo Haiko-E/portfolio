@@ -68,7 +68,20 @@ submitButton.addEventListener('click', (e) => {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams(formData.toString()),
   })
-    .then(() => console.log('Form successfully submitted'))
+    .then(() => {
+      console.log('Form successfully submitted');
+      console.dir(form);
+
+      const nameInput = form[0] as HTMLInputElement;
+      const emailInput = form[1] as HTMLInputElement;
+      const messageInput = form[2] as HTMLTextAreaElement;
+
+      setTimeout(() => {
+        nameInput.value = '';
+        emailInput.value = '';
+        messageInput.value = '';
+      }, 4000);
+    })
     .catch((error) => alert(error));
 });
 

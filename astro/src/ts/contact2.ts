@@ -70,8 +70,6 @@ submitButton.addEventListener('click', (e) => {
   })
     .then(() => {
       console.log('Form successfully submitted');
-      console.dir(form);
-
       const nameInput = form[0] as HTMLInputElement;
       const emailInput = form[1] as HTMLInputElement;
       const messageInput = form[2] as HTMLTextAreaElement;

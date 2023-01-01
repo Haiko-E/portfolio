@@ -1,7 +1,7 @@
 ---
 ---
 
-<section class='contact'>
+<section id='contact' class='contact'>
   <div class='contact__box'>
     <div class='contact__envelope'>
       <svg
@@ -29,10 +29,18 @@
     <div class='contact__content'>
       <h2>Let's Talk</h2>
       <h3>Enter your message</h3>
-      <form action='' class='contact__form'>
+      <form
+        id='myform'
+        class='contact__form'
+        name='myform'
+        method='post'
+        data-netlify='true'
+        action='#contact'
+      >
         <div class='contact__inputs'>
           <div class='contact__inputs-wrapper'>
             <input
+              required
               placeholder='Name'
               class='input'
               type='text'
@@ -40,6 +48,7 @@
               id='name'
             />
             <label class='label' for='name'>Name</label>
+            <span id='invalid-name' class='invalid'></span>
           </div>
           <div class='contact__inputs-wrapper'>
             <input
@@ -50,6 +59,7 @@
               id='email'
             />
             <label class='label' for='email'>Email</label>
+            <span id='invalid-email' class='invalid'></span>
           </div>
         </div>
         <div class='contact__inputs-wrapper'>
@@ -61,9 +71,10 @@
             rows='1'
             cols='60'></textarea>
           <label class='label' for='message'>Message</label>
+          <span id='invalid-message' class='invalid'></span>
         </div>
         <div class='contact__submit'>
-          <a class='btn' href=''>SUBMIT FORM</a>
+          <a id='submit' class='btn btn-disabled' href=''>SUBMIT FORM</a>
           <div class='contact__info'>
             <p>haiko.erinkveld@gmail.com</p>
             <p>+31 6 11372744</p>
@@ -78,28 +89,69 @@
   @import '../sass/_variables.scss';
   @import '../sass/_components.scss';
 
+  .invalid {
+    color: $orange-web;
+    font-size: 0.7rem;
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+  }
+
+  //CONTACT LEFT SIDE
+
   svg {
-    width: 60%;
+    width: 70%;
     max-width: 220px;
     fill: transparent;
   }
 
-  svg:hover {
-    animation: send 1000ms forwards 1000ms;
+  .reverse-animation {
+    animation: scale-out 1s reverse backwards;
+
     .test1 {
-      animation: close 1000ms forwards, stroke 0.8s linear alternate forwards 2000ms;
+      animation: stroke 1s linear reverse backwards 1000ms,
+        close 1000ms reverse backwards 1500ms;
     }
 
     .test {
-      animation: stroke 1s linear alternate forwards 1900ms;
+      animation: stroke 1s linear reverse backwards 1000ms;
+    }
+
+    .contact__content {
+      animation: flip-right 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) reverse
+        backwards 2000ms;
+    }
+  }
+
+  .play-animation {
+    animation: scale-out 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) 2900ms forwards,
+      scale-out 0.5s reverse forwards 5s;
+
+    svg {
+      animation: send 1000ms forwards 1000ms, send 1000ms reverse forwards 4000ms;
+    }
+
+    .test1 {
+      animation: close 1000ms forwards, stroke 0.8s linear alternate forwards 2000ms,
+        stroke 1s linear reverse forwards 5900ms,
+        close 1000ms reverse forwards 6900ms;
+    }
+
+    .test {
+      animation: stroke 1s linear alternate forwards 1900ms,
+        stroke 1s linear reverse forwards 5900ms;
+    }
+
+    .contact__content {
+      animation: flip-right 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards
+          1700ms,
+        flip-right 0.7s cubic-bezier(0.55, 0.085, 0.68, 0.53) reverse forwards 5500ms;
     }
   }
 
   .cls-1 {
     stroke: orange;
     stroke-width: 3px;
-    // stroke-dasharray: 0;
-    // stroke-dashoffset: 0;
   }
 
   .test {
@@ -134,11 +186,11 @@
     }
 
     80% {
-      transform: translateX(50%);
+      transform: translateX(30%);
     }
 
     100% {
-      transform: translateX(40%);
+      transform: translateX(20%);
     }
   }
 
@@ -151,6 +203,8 @@
     }
   }
 
+  // CONTACT RIGHT SIDE
+
   .contact {
     display: flex;
     justify-content: center;
@@ -159,6 +213,7 @@
     position: relative;
     min-height: 100vh;
     background-color: $black;
+
     @media only screen and (max-width: $media-medium) {
       padding: 5rem 0;
       min-height: auto;
@@ -175,15 +230,32 @@
     &__inputs {
       display: flex;
 
+      @media only screen and (max-width: $media-medium) {
+        flex-direction: column;
+      }
+
       &-wrapper {
         width: 100%;
         position: relative;
 
+        input:-webkit-autofill,
+        textarea:-webkit-autofill,
+        select:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 1000px rgb(19, 19, 19) inset !important;
+          -webkit-text-fill-color: $platinum !important;
+          border-bottom: 1px solid rgb(70, 70, 70) !important;
+        }
+
+        // .input:-webkit-autofill {
+        //   padding: 0.2rem 0;
+        //   font-size: 0.8rem;
+        // }
+
         .input {
+          margin-bottom: 3rem;
           font-family: inherit;
           caret-color: rgba(187, 187, 187, 0.2);
           color: $platinum;
-          margin-bottom: 1.5rem;
           padding: 0.5rem 0;
           background-color: transparent;
           border: none;
@@ -215,6 +287,27 @@
           transition: all 100ms ease-in-out;
           font-size: 0.7rem;
         }
+
+        textarea {
+          max-height: 100px;
+
+          &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            background-color: #f5f5f571;
+          }
+
+          &::-webkit-scrollbar {
+            width: 6px;
+            background-color: #f5f5f500;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #1d1d1d;
+          }
+        }
       }
 
       &-wrapper:not(:last-child) {
@@ -223,44 +316,142 @@
     }
 
     &__box {
+      opacity: 0; // go's to 1 when the intersection observer hits
       display: flex;
-      padding: 4rem 3rem;
+      padding: 4rem 4rem 4rem 0;
       height: fit-content;
       width: 80%;
       background-color: rgb(19, 19, 19);
+
+      @media only screen and (max-width: $media-small) {
+        width: 100%;
+      }
     }
 
     &__envelope {
+      padding: 1.3rem;
       display: flex;
+      justify-content: center;
       align-items: center;
       width: 40%;
+
+      @media only screen and (max-width: $media-medium) {
+        width: 50%;
+      }
     }
 
     &__content {
+      margin-left: 1rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
       width: 60%;
+
+      @media only screen and (max-width: $media-medium) {
+        width: 50%;
+      }
     }
 
     &__form {
+    }
+
+    &__info {
+      @media only screen and (max-width: $media-medium) {
+        margin-top: 1rem;
+      }
     }
 
     &__submit {
       margin-top: 2rem;
       display: flex;
       align-items: center;
+      @media only screen and (max-width: $media-medium) {
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
       a {
-        padding: 1.2rem 1.8rem;
+        font-size: 0.7rem;
+        padding: 1rem 1.6rem;
       }
 
       p {
         padding-left: 2rem;
         font-size: 0.8rem;
         color: rgba(128, 128, 128, 0.5);
+        @media only screen and (max-width: $media-medium) {
+          padding: 0;
+        }
       }
     }
   }
+
+  .flip-right {
+    -webkit-animation: flip-out-ver-right 0.45s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+      both;
+    animation: flip-out-ver-right 0.45s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  }
+
+  @-webkit-keyframes flip-right {
+    0% {
+      -webkit-transform: rotateY(0);
+      transform: rotateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotateY(70deg);
+      transform: rotateY(70deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes flip-right {
+    0% {
+      -webkit-transform: rotateY(0);
+      transform: rotateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotateY(70deg);
+      transform: rotateY(70deg);
+      opacity: 0;
+    }
+  }
+
+  .scale-out-center {
+    -webkit-animation: scale-out 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    animation: scale-out 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  }
+
+  @-webkit-keyframes scale-out {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 1;
+    }
+  }
+  @keyframes scale-out {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 1;
+    }
+  }
 </style>
+
+<script>
+  import '../ts/contact2.ts';
+  import '../ts/validateForm.ts';
+</script>

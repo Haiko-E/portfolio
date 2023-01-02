@@ -1,9 +1,9 @@
 const nav = document.querySelector<HTMLElement>('.nav')!;
 const aboutSection = document.querySelector('.about')!;
 
-// Intersection observer to check if navbar needs blur when 90% of section is visible
+// Intersection observer to check if navbar needs blur when 70% of section is visible
 let options = {
-  threshold: 0.8,
+  threshold: 0.7,
 };
 
 let observer = new IntersectionObserver((entries, observer) => {

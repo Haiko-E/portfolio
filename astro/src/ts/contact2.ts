@@ -88,6 +88,7 @@ observer.observe(contactSection);
 // });
 
 submitButton.addEventListener('click', (e) => {
+  console.dir(form);
   e.preventDefault();
   playAnimation();
   const newForm = new FormData(form);
@@ -101,14 +102,12 @@ submitButton.addEventListener('click', (e) => {
       const nameInput = form[0] as HTMLInputElement;
       const emailInput = form[1] as HTMLInputElement;
       const messageInput = form[2] as HTMLTextAreaElement;
-      console.dir(messageInput);
 
       setTimeout(() => {
         nameInput.value = '';
         emailInput.value = '';
         messageInput.value = '';
       }, 4000);
-      console.dir(messageInput);
     })
     .catch((error) => alert('Error ' + error));
 });

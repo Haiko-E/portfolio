@@ -58,44 +58,47 @@ const observer = new IntersectionObserver((entries, observer) => {
 observer.observe(contactSection);
 
 // SUBMITTING
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
+// form.addEventListener('submit', (e) => {
+//   e.preventDefault();
 
-  console.log('submitting');
-  playAnimation();
+//   console.log('submitting');
+//   playAnimation();
 
-  const myForm = e.target as HTMLFormElement;
-  const formData = new FormData(myForm);
+//   const myForm = e.target as HTMLFormElement;
+//   const formData = new FormData(myForm);
 
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams(formData.toString()),
-  })
-    .then(() => {
-      console.log('Form successfully submitted');
-      const nameInput = form[0] as HTMLInputElement;
-      const emailInput = form[1] as HTMLInputElement;
-      const messageInput = form[2] as HTMLTextAreaElement;
+//   fetch('/', {
+//     method: 'POST',
+//     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+//     body: new URLSearchParams(formData.toString()),
+//   })
+//     .then(() => {
+//       console.log('Form successfully submitted');
+//       const nameInput = form[0] as HTMLInputElement;
+//       const emailInput = form[1] as HTMLInputElement;
+//       const messageInput = form[2] as HTMLTextAreaElement;
 
-      setTimeout(() => {
-        nameInput.value = '';
-        emailInput.value = '';
-        messageInput.value = '';
-      }, 4000);
-    })
-    .catch((error) => alert('Error ' + error));
-});
+//       setTimeout(() => {
+//         nameInput.value = '';
+//         emailInput.value = '';
+//         messageInput.value = '';
+//       }, 4000);
+//     })
+//     .catch((error) => alert('Error ' + error));
+// });
 
 submitButton.addEventListener('click', (e) => {
   e.preventDefault();
   console.dir(form);
+  playAnimation();
 
   const newForm = new FormData(form);
+
+  console.log(new URLSearchParams(newForm).toString());
   fetch('/', {
-    method: 'POST',
+    method: 'post',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams(newForm.toString()),
+    body: new URLSearchParams(newForm).toString(),
   })
     .then(() => {
       console.log('Form successfully submitted');

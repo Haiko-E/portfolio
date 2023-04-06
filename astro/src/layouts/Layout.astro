@@ -88,6 +88,12 @@ const { title, project } = Astro.props;
         font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
           Bitstream Vera Sans Mono, Courier New, monospace;
       }
+
+      @supports (position: -webkit-sticky) {
+        .max-width {
+          overflow: hidden;
+        }
+      }
     </style>
     <script src='https://kit.fontawesome.com/f4df587ce4.js' crossorigin='anonymous'
     ></script>
